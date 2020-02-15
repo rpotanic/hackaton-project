@@ -5,9 +5,26 @@ header{
     background: #fff;
     padding: 30px 20px;
     .rigth{
+       position: relative;
         display: flex;
         >div{
             margin-left: 15px;
+        }
+
+    }
+    .sign-in-form{
+        background: white;
+        position: absolute;
+        padding: 20px;
+        bottom: 592px;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        height: 200px;
+        justify-content: space-between;
+
+        &.active{
+            display: flex;
         }
     }
 }

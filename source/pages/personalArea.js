@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
 import '../css/personalArea.scss'
 import Table from '../components/Table'
@@ -25,7 +26,7 @@ import netcracker from '../img/netcracker.jpg'
 import intel from '../img/intel.jpg'
 import beeline from '../img/beeline.jpg'
 
-export default class Page extends React.Component {
+class Page extends React.Component {
     state = {};
 
     getImagesRoute = (item) => {
@@ -66,6 +67,7 @@ export default class Page extends React.Component {
                         </tr>)} />
                     </div>
                 </div>
+                {this.props.userType !==''?
                 <div className='right'>
                     <div className='block'>
                         <div className='title'>
@@ -92,8 +94,21 @@ export default class Page extends React.Component {
                             <Button  label='Добавить' className='personal-area-but'/>
                         </div>
                     </div>
-                </div>
+                </div> : null}
             </div>
         )
     }
 }
+
+const mapStateToProps = state => ({
+    userType: state.user.auth
+});
+
+const mapDispatchToProps = dispatchEvent => ({
+    authotizationF: (...arg) => dispatchEvent(authotizationF(...arg)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Page);

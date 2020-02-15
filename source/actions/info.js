@@ -16,6 +16,9 @@ export const authotizationF = (inf) => async (dispatch, getState) => {
       userType: 'mera'
     }]
 
+    console.log(inf);
+    
+
   for (let i = 0; i < singUpUsers.length; i++) {
     if (singUpUsers[i].login === inf.login) {
       console.log('удачно');

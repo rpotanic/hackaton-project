@@ -22,7 +22,7 @@ $focused_color: yellow;
     }
 
     &:focus {
-      border-color: green;
+      border-color: #C91616;
       outline: none;
     }
   }
@@ -36,7 +36,7 @@ $focused_color: yellow;
     padding: 5px;
 
     font-size: 1.4em;
-    color: $default_color;
+    color: #C91616;
     cursor: text;
 
     transform: translateY(-50%);
@@ -52,11 +52,11 @@ $focused_color: yellow;
     font-size: 1.2em;
 
     background: white;
-    color: green;
+    color: #C91616;
   }
 
   &.Input_active label {
-    color: $default_color;
+    color: #C91616;
   }
 
   textarea {
