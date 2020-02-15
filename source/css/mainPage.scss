@@ -1,0 +1,48 @@
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    .card{
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        justify-content: space-between;
+        width: 350px;
+        height: 150px;
+        margin-top: 15px;
+        margin-left: 15px;
+        background: white;
+        box-shadow: 0 0 10px lightgray;
+            .title{
+                font-style: normal;
+                font-weight: 900;
+                font-size: 15px;
+                line-height: 16px;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: black;
+            }
+            .subtitle{
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 0px;
+                border-top: 1px solid #bfbfbf;
+
+                &:first-child{
+                    border: none
+                }
+                .label{
+                    color: #bfbfbf;
+                    
+                    &.link{
+                        color: #0500FD;
+                    }
+                }
+                .count{
+                    color: #0500FD;
+                }
+            }
+    }
+}

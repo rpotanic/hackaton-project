@@ -4,6 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import MainPage from '../pages/main'
+import PersAreaPage from '../pages/personalArea'
 
 class AppRoute extends Component {
   render() {
@@ -13,6 +14,11 @@ class AppRoute extends Component {
           component={MainPage}
           exact
           path='/'
+        />
+        <Route
+          component={PersAreaPage}
+          exact
+          path='/lk'
         />
       </React.Fragment>
     );

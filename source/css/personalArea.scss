@@ -1,0 +1,25 @@
+.personal-area{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+    .left{
+        margin-left: 10px;
+        width: 49%;
+    }
+    .right{
+        margin-right: 10px;
+        width: 49%;
+    }
+    .block{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: white;
+        box-shadow: 0 0 10px lightgray;
+        .title{
+            font-size: 25px;
+        }
+    }
+}

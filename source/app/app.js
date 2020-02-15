@@ -8,6 +8,7 @@ import '../css/reset.css';
 import '../css/main.scss'
 
 import Route from '../route'; 
+import Header from '../components/Header'
 
 
 class ReactComponent extends React.Component {
@@ -18,6 +19,7 @@ class ReactComponent extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <Header />
         <Route />
       </React.Fragment>
     );

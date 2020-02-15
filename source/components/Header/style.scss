@@ -1,0 +1,13 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 30px 20px;
+    .rigth{
+        display: flex;
+        >div{
+            margin-left: 15px;
+        }
+    }
+}
