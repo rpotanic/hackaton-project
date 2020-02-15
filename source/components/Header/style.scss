@@ -7,8 +7,17 @@ header{
     .rigth{
        position: relative;
         display: flex;
+
         >div{
             margin-left: 15px;
+        }
+        .login{
+            display: flex;
+            justify-content: space-between;
+            color: #C4C4C4;
+            >div{
+                margin: 0 15px;
+            }
         }
 
     }
@@ -26,5 +35,6 @@ header{
         &.active{
             display: flex;
         }
+       
     }
 }

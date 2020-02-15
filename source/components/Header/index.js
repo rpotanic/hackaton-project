@@ -65,14 +65,15 @@ class Header extends React.Component {
         const {userType} = this.props;
 
         if (userType === '') {
-            return <React.Fragment>
+            return <div className='login'>
                  <div onClick={this.onShow} >
                         Вход
                     </div>
+                   <div> | </div>
                     <div>
                         Регистрация
                     </div>
-            </React.Fragment>
+            </div>
         } else {
             return <React.Fragment>
                 <div className='login'>Личный кабинет {userType}</div>
