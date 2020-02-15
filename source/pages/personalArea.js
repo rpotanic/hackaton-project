@@ -2,9 +2,13 @@ import React from 'react';
 
 import '../css/personalArea.scss'
 import Table from '../components/Table'
-import { companies } from '../lib/constanstArray'
+import { companies, workers } from '../lib/constanstArray'
+import Button from '../components/Button'
 
 const companyTable = ['Компания', 'Предложение', 'Запрос']
+const workersTable = ['Специальность', 'Стоимость', 'Наличие']
+
+
 const t = [{
     item1: 1,
     item2: 2,
@@ -28,13 +32,13 @@ export default class Page extends React.Component {
         switch (item) {
             case 'mtc':
                 return mtc
- 
+
             case 'netcracker':
                 return netcracker
-             case 'intel': 
-                return intel  
-                case 'beeline': 
-                return beeline 
+            case 'intel':
+                return intel
+            case 'beeline':
+                return beeline
             default:
                 break;
         }
@@ -49,16 +53,16 @@ export default class Page extends React.Component {
                             Лента поставщиков
                     </div>
                         <Table option={companyTable} data={companies.map((item) => <tr>
-                            <td><img  style={{width: '150px'}} src={this.getImagesRoute(item.name)}/></td>
+                            <td><img style={{ width: '150px' }} src={this.getImagesRoute(item.name)} /></td>
                             <td>
-                                <div style={{color: '#0500FD', fontSize: '18px', marginBottom: '10px' }}>
-                                   Продажа ({item.workersSale.length})
+                                <div style={{ color: '#0500FD', fontSize: '18px', marginBottom: '10px' }}>
+                                    Продажа ({item.workersSale.length})
                                 </div>
-                                <div style={{color: '#0500FD', fontSize: '18px'}}>
+                                <div style={{ color: '#0500FD', fontSize: '18px' }}>
                                     Аренда ({item.workersRent.length})
                                 </div>
                             </td>
-                            <td><div style={{color: '#0500FD', fontSize: '18px'}}>Вакансии ({item.vacansies.length})</div></td>
+                            <td><div style={{ color: '#0500FD', fontSize: '18px' }}>Вакансии ({item.vacansies.length})</div></td>
                         </tr>)} />
                     </div>
                 </div>
@@ -67,11 +71,26 @@ export default class Page extends React.Component {
                         <div className='title'>
                             Продажа/Аренда
                     </div>
+                        <Table option={workersTable} data={workers.map((item) => <tr>
+                            <td style={{ fontSize: '18px' }}>{item.name}</td>
+                            <td style={{ fontSize: '18px' }}>{item.price}</td>
+                            <td style={{ fontSize: '18px',  color: '#0500FD' }}>{item.count}</td>
+                        </tr>)} />
+                        <Button  label='Добавить' className='personal-area-but'/>
                     </div>
-                    <div className='block' style={{marginTop: '15px'}}>
+
+                    <div className='block' style={{ marginTop: '15px' }}>
                         <div className='title'>
                             Вакансии
                     </div>
+                        <div>
+                            <Table option={workersTable} data={workers.map((item) => <tr>
+                                <td style={{ fontSize: '18px' }}>{item.name}</td>
+                                <td style={{ fontSize: '18px' }}>{item.price}</td>
+                                <td style={{ fontSize: '18px',  color: '#0500FD' }}>{item.count}</td>
+                            </tr>)} />
+                            <Button  label='Добавить' className='personal-area-but'/>
+                        </div>
                     </div>
                 </div>
             </div>

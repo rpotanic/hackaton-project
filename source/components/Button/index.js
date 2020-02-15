@@ -6,7 +6,7 @@ export default class Button extends Component {
 
 
     getClassName=()=>{
-        let className= 'button';
+        let className= 'button ';
         if (this.props.className) className += this.props.className;
 
         return className;
