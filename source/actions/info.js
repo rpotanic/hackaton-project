@@ -14,28 +14,32 @@ export const authotizationF = (inf) => async (dispatch, getState) => {
       login: 'MERA',
       pass: '234',
       userType: 'mera'
-    }]
+    },
+    {
+      login: 'ROGA i KOPITA',
+      pass: '2334',
+      userType: 'Roga i Kopita'
+    }
+  ]
 
-    console.log(inf);
-    
+  console.log(inf);
+  const newArr = singUpUsers.filter((item) => item.login === inf.login)
 
-  for (let i = 0; i < singUpUsers.length; i++) {
-    if (singUpUsers[i].login === inf.login) {
-      console.log('удачно');
+  if (newArr.length && newArr[0].pass === inf.password) {
+    console.log('удачно');
 
-      dispatch({
-        type: AUTH_INFO,
-        response: singUpUsers[i].userType
-      })
-      
-    } else {
-      
-       alert('Проверьте правильность ввода')}
-       break
+    dispatch({
+      type: AUTH_INFO,
+      response: newArr[0].userType
+    })
+  } else {
+
+    alert('Проверьте правильность ввода')
   }
+
 }
 
-export const addVac = (obj, callback) => (dispatch, getState)=>{
+export const addVac = (obj, callback) => (dispatch, getState) => {
   dispatch({
     type: ADD_VAC,
     response: obj
@@ -44,5 +48,5 @@ export const addVac = (obj, callback) => (dispatch, getState)=>{
 }
 
 export const getCompanyInfo = (flag) => () => {
-  
+
 }

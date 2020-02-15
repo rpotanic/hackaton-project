@@ -25,6 +25,8 @@ import mtc from '../img/mtc.jpg'
 import netcracker from '../img/netcracker.jpg'
 import intel from '../img/intel.jpg'
 import beeline from '../img/beeline.jpg'
+import roga from '../img/roga.jpg'
+
 
 class Page extends React.Component {
     state = {};
@@ -40,6 +42,8 @@ class Page extends React.Component {
                 return intel
             case 'beeline':
                 return beeline
+            case 'Roga i Kopita':
+                return roga
             default:
                 break;
         }

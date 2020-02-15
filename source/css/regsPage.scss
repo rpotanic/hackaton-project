@@ -1,0 +1,53 @@
+.registration-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    
+    .form-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        width: 450px;
+        padding: 20px 0;
+        box-shadow: 0 0 10px lightgray;
+            .title{
+                color: #000000;
+                font-size: 33px;
+                padding: 20px 10px;
+            }
+            .form{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 20px 0px;
+                height: 100%;
+                .two{
+                    display: flex;
+                    .Input{
+                        &:first-child{
+                            margin-right: 15px;
+                        }
+                    }
+                }
+                .Input{
+                    margin-top: 15px;
+                }
+            }
+            .buttons{
+                display: flex;
+                width: 83%;
+                justify-content: space-between;
+                .button{
+                &:first-child{
+                    margin-right: 15px;
+                }
+            }
+            }
+    }
+
+    }

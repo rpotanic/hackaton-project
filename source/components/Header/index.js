@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import './style.scss'
 
@@ -70,9 +71,9 @@ class Header extends React.Component {
                         Вход
                     </div>
                    <div> | </div>
-                    <div>
+                    <Link to='/registration'>
                         Регистрация
-                    </div>
+                    </Link>
             </div>
         } else {
             return <React.Fragment>

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import MainPage from '../pages/main'
 import PersAreaPage from '../pages/personalArea'
+import RegistrationPage from '../pages/registration'
 
 class AppRoute extends Component {
   render() {
@@ -19,6 +20,11 @@ class AppRoute extends Component {
           component={PersAreaPage}
           exact
           path='/lk'
+        />
+        <Route
+          component={RegistrationPage}
+          exact
+          path='/registration'
         />
       </React.Fragment>
     );
