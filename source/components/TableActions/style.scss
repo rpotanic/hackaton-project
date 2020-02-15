@@ -1,0 +1,36 @@
+@import '../../css/variables';
+
+.Actions {
+  display: flex;
+  justify-content: flex-end;
+
+  .Actions-item {
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-left: 5px;
+
+    opacity: 0.5;
+    color: #333;
+    cursor: pointer;
+
+
+    &.active,
+    &:hover {
+      opacity: 1;
+
+      svg path {
+        fill: rgb(77, 77, 77);
+      }
+    }
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}

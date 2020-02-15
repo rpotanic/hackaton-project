@@ -1,0 +1,32 @@
+$left_menu_width: 300px;
+$mobile_nav_bar_height: 100px;
+
+$screen_breakpoint: 700px;
+
+$page_padding: 30px;
+$wrapper_padding: $page_padding $page_padding;
+
+$white: #ffffff;
+$dark: #3c3c46;
+$blue: #4b66f8;
+$gray: #eeeeee;
+$golden: #00A651;
+$golden_rain: linear-gradient(119.35deg, #e6be64 0%, #f0dc8c 100%);
+$blue_sky: linear-gradient(265.07deg, #2eaff7 0%, #5e59f2 100%);
+
+$theme_color: rgba(78, 88, 112, 0.5);
+$theme_color_secondary: $golden;
+
+$app_background: $white;
+$nav_background: #72BF44;
+
+$text_primary: black;
+$text_secondary: $theme_color_secondary;
+
+$btn_border_r: 4px;
+
+$btn_primary_bg: #2a70d8;
+$btn_primary_color: $white;
+
+$btn_secondary_bg: $theme_color;
+$btn_secondary_color: $white;

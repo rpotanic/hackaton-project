@@ -1,0 +1,16 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+    padding: 10px;
+    background:#DDFB3F ;
+    .link{
+        margin-top: 20px;
+        color: black;
+        cursor: pointer;
+        &:hover{
+            opacity: .7 ;
+        }
+    }
+}

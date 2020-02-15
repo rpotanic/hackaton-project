@@ -1,0 +1,74 @@
+
+$default_color: green;
+$focused_color: yellow;
+
+.Input {
+  position: relative;
+
+  font-family: 'Roboto', sans-serif;
+
+  .Input__TextField {
+    padding: 15px 20px;
+
+    font-size: 1.4em;
+
+    border: 1px solid gray;
+    border-radius: 4px;
+
+    color: rgb(145, 143, 143);
+
+    &::placeholder {
+      color: gainsboro;
+    }
+
+    &:focus {
+      border-color: green;
+      outline: none;
+    }
+  }
+  
+  
+  label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+
+    padding: 5px;
+
+    font-size: 1.4em;
+    color: $default_color;
+    cursor: text;
+
+    transform: translateY(-50%);
+
+    transition: all 300ms;
+  }
+
+  &.Input_active label,
+  .Input__TextField:focus + label {
+    top: 0 !important;
+    left: 10px;
+
+    font-size: 1.2em;
+
+    background: white;
+    color: green;
+  }
+
+  &.Input_active label {
+    color: $default_color;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  &.TextArea {
+    label {
+      top: 20px;
+    }
+  }
+  &.main-input {
+    width: 350px;
+  }
+}
