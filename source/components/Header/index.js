@@ -113,7 +113,7 @@ class Header extends React.Component {
                     }} onChange={this.changeInput} />
                     <Button label='Добавить' onClick={() => this.props.authotizationF(this.state.info, this.onHide())} />
                 </div>
-                <Filter show={this.state.filterShow} />
+                {/* <Filter show={this.state.filterShow} /> */}
             </header>
         )
     }

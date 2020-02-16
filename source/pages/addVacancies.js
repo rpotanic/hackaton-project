@@ -57,7 +57,7 @@ class Page extends Component {
                         {/* <div className='two'> */}
                             <Input inputProps={this.getInputProps('city')} label='Город' />
                             <Input inputProps={this.getInputProps('salaryFrom')} label='Зарплата от' />
-                            <Input inputProps={this.getInputProps('salaryTo')} label='Зарплата lj' />
+                            <Input inputProps={this.getInputProps('salaryTo')} label='Зарплата до' />
                             <Input inputProps={this.getInputProps('experience')} label='Опыт работы' />
                         {/* </div> */}
                         <Input type='textarea' inputProps={this.getInputProps('competence')} label='Компетнции' />
