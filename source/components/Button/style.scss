@@ -15,7 +15,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        
+        text-align: center;
         color: white;
         
       
@@ -23,5 +23,9 @@
 
     &.personal-area-but{
         width: 25%;
+    }
+
+    &.small{
+        width: 50%;
     }
 }

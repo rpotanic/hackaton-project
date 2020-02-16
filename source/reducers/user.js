@@ -1,5 +1,6 @@
 import { AUTH_INFO } from '../actions/info';
 import {TOKEN} from '../lib/storageVariables'
+import {COMPANY_INFO} from '../lib/storageVariables'
 
 
 import { getLocalStorage } from '../lib/functions';
@@ -7,6 +8,7 @@ import { getLocalStorage } from '../lib/functions';
 
 const STATE = {
   auth: localStorage.getItem(TOKEN) || '',
+  companyInfo: localStorage.getItem(COMPANY_INFO) || []
 };
 
 export default function (state = STATE, action) {

@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
+import {workers} from '../lib/constanstArray'
 import '../css/personalArea.scss'
 import Table from '../components/Table'
-import { companies, workers } from '../lib/constanstArray'
 import Button from '../components/Button'
 
-const companyTable = ['Компания', 'Предложение', 'Запрос']
-const workersTable = ['Специальность', 'Стоимость', 'Наличие']
+const companyTable = ['Компания', 'Предложение', 'Запрос', '']
+const workersTable = ['Специальность', 'Стоимость', 'Наличие', '']
 
 
 const t = [{
@@ -29,7 +30,20 @@ import roga from '../img/roga.jpg'
 
 
 class Page extends React.Component {
-    state = {};
+    state = {
+        companyInfo: {}
+    };
+
+    componentDidMount() {
+        if (this.props.userType) this.findCompany()
+    }
+
+    findCompany = ()=>{
+        const {companies, userType} = this.props;
+        const newArr = companies.filter((item) => item.name === userType )
+
+        this.setState({companyInfo: newArr[0]});
+    }
 
     getImagesRoute = (item) => {
         switch (item) {
@@ -50,6 +64,13 @@ class Page extends React.Component {
     }
 
     render() {
+        const {companies} = this.props;
+        const {companyInfo} = this.state;
+        const workers = companyInfo.workersRent || []
+        const vac = companyInfo.vacansies || []
+        console.log(workers);
+        
+        
         return (
             <div className='personal-area'>
                 <div className='left'>
@@ -57,17 +78,19 @@ class Page extends React.Component {
                         <div className='title'>
                             Лента поставщиков
                     </div>
-                        <Table option={companyTable} data={companies.map((item) => <tr>
+                        <Table option={companyTable} data={this.props.companies.map((item) => <tr>
                             <td><img style={{ width: '150px' }} src={this.getImagesRoute(item.name)} /></td>
                             <td>
-                                <div style={{ color: '#0500FD', fontSize: '18px', marginBottom: '10px' }}>
+                                <div style={{display: 'flex', flexDirection:'column'}}>
+                                <Link to={`/workers/${item.name}`} style={{ color: '#0500FD', fontSize: '18px', marginBottom: '10px' }}>
                                     Продажа ({item.workersSale.length})
-                                </div>
-                                <div style={{ color: '#0500FD', fontSize: '18px' }}>
+                                </Link>
+                                <Link  to={`/workers/${item.name}`} style={{ color: '#0500FD', fontSize: '18px' }}>
                                     Аренда ({item.workersRent.length})
+                                </Link >
                                 </div>
                             </td>
-                            <td><div style={{ color: '#0500FD', fontSize: '18px' }}>Вакансии ({item.vacansies.length})</div></td>
+                            <td><Link  to={`/vacancies/${item.name}`} style={{ color: '#0500FD', fontSize: '18px' }}>Вакансии ({item.vacansies.length})</Link></td>
                         </tr>)} />
                     </div>
                 </div>
@@ -77,12 +100,14 @@ class Page extends React.Component {
                         <div className='title'>
                             Продажа/Аренда
                     </div>
+                    {workers && workers.length ?
                         <Table option={workersTable} data={workers.map((item) => <tr>
-                            <td style={{ fontSize: '18px' }}>{item.name}</td>
-                            <td style={{ fontSize: '18px' }}>{item.price}</td>
+                            <td style={{ fontSize: '18px' }}>{item.special}</td>
+                            <td style={{ fontSize: '18px' }}>{item.salaryExp}</td>
                             <td style={{ fontSize: '18px',  color: '#0500FD' }}>{item.count}</td>
-                        </tr>)} />
-                        <Button  label='Добавить' className='personal-area-but'/>
+                            <td><Button label='Отправить запрос' className='small' onClick={()=> alert('Запрос отправлен')}/></td>
+                        </tr>)} /> : null}
+                       <Link to='/addworker'> <Button  label='Добавить' className='personal-area-but'/></Link>
                     </div>
 
                     <div className='block' style={{ marginTop: '15px' }}>
@@ -90,12 +115,13 @@ class Page extends React.Component {
                             Вакансии
                     </div>
                         <div>
-                            <Table option={workersTable} data={workers.map((item) => <tr>
-                                <td style={{ fontSize: '18px' }}>{item.name}</td>
-                                <td style={{ fontSize: '18px' }}>{item.price}</td>
+                            <Table option={workersTable} data={vac.map((item) => <tr>
+                                <td style={{ fontSize: '18px' }}>{item.special}</td>
+                                <td style={{ fontSize: '18px' }}>{item.salaryExp}</td>
                                 <td style={{ fontSize: '18px',  color: '#0500FD' }}>{item.count}</td>
+                                <td><Button label='Отправить запрос' className='small' onClick={()=> alert('Запрос отправлен')} /></td>
                             </tr>)} />
-                            <Button  label='Добавить' className='personal-area-but'/>
+                            <Link to='/addvacancie'> <Button  label='Добавить' className='personal-area-but'/></Link>
                         </div>
                     </div>
                 </div> : null}
@@ -105,7 +131,8 @@ class Page extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    userType: state.user.auth
+    userType: state.user.auth,
+    companies: state.companies.companies
 });
 
 const mapDispatchToProps = dispatchEvent => ({
