@@ -10,6 +10,7 @@ import logo from '../../img/mainLogo.png'
 
 import Input from '../Input'
 import Button from '../Button'
+import Filter from '../Filter'
 
 class Header extends React.Component {
     state = {
@@ -17,7 +18,8 @@ class Header extends React.Component {
             login: '',
             password: ''
         },
-        show: false
+        show: false,
+        filterShow: false
     }
 
     componentDidMount() {
@@ -62,6 +64,14 @@ class Header extends React.Component {
         this.setState({ show: false })
     }
 
+    onShowFilter = () => {
+        this.setState({ filterShow: true })
+    }
+
+    onHideFilter = () => {
+        this.setState({ filterShow: false })
+    }
+
     renderLogin = ()=>{
         const {userType} = this.props;
 
@@ -103,6 +113,7 @@ class Header extends React.Component {
                     }} onChange={this.changeInput} />
                     <Button label='Добавить' onClick={() => this.props.authotizationF(this.state.info, this.onHide())} />
                 </div>
+                <Filter show={this.state.filterShow} />
             </header>
         )
     }

@@ -1,0 +1,26 @@
+.filter-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+    height: 500px;
+    background: white;
+    bottom: 360px;
+    padding: 10px;
+    right: 0;
+    .Input{
+        margin-top: 15px;
+        width: 100%;
+    }
+    .row{
+        display: flex;
+        .Input{
+            &:first-child{
+                margin-right: 10px;
+            }
+        }
+    }
+    .button{
+        margin-top: 10px;
+    }
+}
