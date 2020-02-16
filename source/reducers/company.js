@@ -1,5 +1,5 @@
 
-import {ADD_COMPANY} from '../actions/company'
+import {ADD_COMPANY, ADD_WORKER, ADD_VACANCIE} from '../actions/company'
 import { getLocalStorage } from '../lib/functions';
 import {companies} from '../lib/constanstArray';
 import {COMPANIES} from '../lib/storageVariables';
@@ -21,6 +21,24 @@ export default function (state = STATE, action) {
         return {
           ...state, companies: action.response
         };
+        case ADD_WORKER:
+          if (action.response) {
+          const revArr = state.companies.map(item => item.name)
+          const index = revArr.indexOf(action.response.company)
+           
+           state.companies[index].workersRent.splice(2,0, action.response.response)
+
+            return {...state, companies: state.companies}
+          }
+        case ADD_VACANCIE:
+          if (action.response) {
+          const revArr = state.companies.map(item => item.name)
+          const index = revArr.indexOf(action.response.company)
+           
+           state.companies[index].vacansies.splice(2,0, action.response.response)
+
+            return {...state, companies: state.companies}
+          }
     default:
       return state;
   }

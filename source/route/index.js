@@ -9,6 +9,7 @@ import RegistrationPage from '../pages/registration'
 import AddWorker from '../pages/addWorker'
 import WorkersRent from '../pages/workersRent'
 import VacanciesPage from '../pages/vacansies'
+import AddVac from '../pages/addVacancies'
  
 class AppRoute extends Component {
   render() {
@@ -32,7 +33,12 @@ class AppRoute extends Component {
         <Route
           component={AddWorker}
           exact
-          path='/addworker'
+          path='/addworker/:company'
+        />
+        <Route
+          component={AddVac}
+          exact
+          path='/addvacancie/:company'
         />
          <Route
           component={WorkersRent}

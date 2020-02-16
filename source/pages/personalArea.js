@@ -107,7 +107,7 @@ class Page extends React.Component {
                             <td style={{ fontSize: '18px',  color: '#0500FD' }}>{item.count}</td>
                             <td><Button label='Отправить запрос' className='small' onClick={()=> alert('Запрос отправлен')}/></td>
                         </tr>)} /> : null}
-                       <Link to='/addworker'> <Button  label='Добавить' className='personal-area-but'/></Link>
+                       <Link to={`/addworker/${this.props.userType}`}> <Button  label='Добавить' className='personal-area-but'/></Link>
                     </div>
 
                     <div className='block' style={{ marginTop: '15px' }}>
@@ -116,12 +116,12 @@ class Page extends React.Component {
                     </div>
                         <div>
                             <Table option={workersTable} data={vac.map((item) => <tr>
-                                <td style={{ fontSize: '18px' }}>{item.special}</td>
-                                <td style={{ fontSize: '18px' }}>{item.salaryExp}</td>
+                                <td style={{ fontSize: '18px' }}>{item.name}</td>
+                            <td style={{ fontSize: '18px' }}>от {item.salaryFrom} до {item.salaryTo}</td>
                                 <td style={{ fontSize: '18px',  color: '#0500FD' }}>{item.count}</td>
                                 <td><Button label='Отправить запрос' className='small' onClick={()=> alert('Запрос отправлен')} /></td>
                             </tr>)} />
-                            <Link to='/addvacancie'> <Button  label='Добавить' className='personal-area-but'/></Link>
+                            <Link to={`/addvacancie/${this.props.userType}`}> <Button  label='Добавить' className='personal-area-but'/></Link>
                         </div>
                     </div>
                 </div> : null}
